@@ -11,18 +11,19 @@ class File{
 private $archivo;
     
 function existe($archivo){
-
-    if(file_exists($archivo)){
-        //return $archivo;
-        echo "existe";
-    }else{
-      // throw new Exception("Divided by Zero");
-        echo "no existe";
-    }
+  
+      
+        try {
+            echo ($archivo);
+            if(!file_exists($archivo)){
+                throw new Exception("El archivo no existe");
+               }
+        } catch (Exception $ex) {
+            echo "Excepción capturada: ". $ex->getMessage();
+        }
+  
 
 }
-
-    
 }
 
 $arc = new File();
